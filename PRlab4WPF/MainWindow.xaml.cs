@@ -74,11 +74,8 @@ namespace PRlab4WPF
 		{
 			try
 			{
-				// отправитель - устанавливаем адрес и отображаемое в письме имя
-				MailAddress from = new MailAddress("puscas@lab4.pr", "Iana");
-				// кому отправляем
+				MailAddress from = new MailAddress("puscas@lab4.pr", "Iana");]
 				MailAddress to = new MailAddress(tbTo.Text);
-				// создаем объект сообщения
 				MailMessage m = new MailMessage(from, to)
 				{
 					Subject = tbTheme.Text,
@@ -86,7 +83,6 @@ namespace PRlab4WPF
 					IsBodyHtml = tbMailContent.Text.StartsWith("<")
 				};
 				if (!string.IsNullOrEmpty(AdFilePath)) m.Attachments.Add(new Attachment(AdFilePath));
-				// адрес smtp-сервера и порт, с которого будем отправлять письмо
 				SmtpClient smtp = new SmtpClient("127.0.0.1", 25)
 				{
 					EnableSsl = false
